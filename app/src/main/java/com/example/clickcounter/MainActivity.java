@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import static com.example.clickcounter.R.id.a_main_tv_btnCount;
 
-@SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity {
 
     private int lastOrientation;
