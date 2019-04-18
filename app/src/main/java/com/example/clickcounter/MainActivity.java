@@ -10,18 +10,14 @@ import android.widget.Button;
 
 import static com.example.clickcounter.R.id.a_main_tv_btnCount;
 
-@SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity {
 
     private int lastOrientation;
-    public static final String KEY_LAST_ORIENTATION = "last_orientation";
-
     private TextView tvBtnCount;
     private TextView tvBgCount;
     private Button clickButton;
     private int btnCounter = 0;
     private int bgCounter = 0;
-    protected static final String TAG = MainActivity.class.getName();
 
     public static final String SHARED_PREFS = "shared preferences";
     public static final String SHARED_PREFS_BTN_COUNTER= "BtnCounter";
@@ -60,14 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-
-        tvBgCount.setText("Background Count " + bgCounter);
         super.onResume();
+        tvBgCount.setText("Background Count " + bgCounter);
     }
 
     @Override
     protected void onStop() {
-
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
         {
             bgCounter++;
@@ -105,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         tvBgCount.setText(Integer.toString(bgCounter));
     }
 
-    private void saveData(){
+    private void saveData() {
         SharedPreferences sharedPreferences =getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
 
@@ -115,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    private void loadData()
-    {
+    private void loadData() {
         SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
 
         btnCounter = sharedPreferences.getInt(SHARED_PREFS_BTN_COUNTER, 0);
