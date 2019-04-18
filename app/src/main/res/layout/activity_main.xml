@@ -44,7 +44,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_main_tv_btnCount" />
 
-
-    <!--<include layout="@layout/landscape_layout"/>    -->
-
 </android.support.constraint.ConstraintLayout>
