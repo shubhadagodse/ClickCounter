@@ -7,18 +7,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import static com.example.clickcounter.R.id.a_main_tv_btnCount;
+
 public class MainActivity extends AppCompatActivity {
     private int lastOrientation;
-    public static final String KEY_LAST_ORIENTATION = "last_orientation";
     private TextView tvBtnCount;
     private TextView tvBgCount;
     private Button clickButton;
     private int btnCounter = 0;
     private int bgCounter = 0;
-    protected static final String TAG = MainActivity.class.getName();
+
     private static final String SHARED_PREFS = "shared preferences";
     private static final String SHARED_PREFS_BTN_COUNTER= "BtnCounter";
     private static final String SHARED_PREFS_BACKGROUND_COUNTER= "BgCounter";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onResume() {
-        tvBgCount.setText("Background Count " + bgCounter);
         super.onResume();
+        tvBgCount.setText("Background Count " + bgCounter);
     }
     @Override
     protected void onStop() {
@@ -80,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
         tvBgCount = findViewById(R.id.a_main_tv_btnBgCount);
         tvBgCount.setText(Integer.toString(bgCounter));
     }
+
     private void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences sharedPreferences =getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
 
         editor.putInt(SHARED_PREFS_BTN_COUNTER,btnCounter);
@@ -89,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         editor.commit();
     }
-    private void loadData()
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+
+    private void loadData() {
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         btnCounter = sharedPreferences.getInt(SHARED_PREFS_BTN_COUNTER, 0);
         bgCounter = sharedPreferences.getInt(SHARED_PREFS_BACKGROUND_COUNTER,0);
     }
