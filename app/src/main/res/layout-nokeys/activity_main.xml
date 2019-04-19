@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/a_main_btn1"
+        android:id="@+id/a_main_bClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -29,7 +29,7 @@
         android:inputType="textPersonName"
         android:text="Button Count"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/a_main_btn1" />
+        app:layout_constraintTop_toBottomOf="@+id/a_main_bClick" />
 
     <TextView
         android:id="@+id/a_main_tv_btnBgCount"
